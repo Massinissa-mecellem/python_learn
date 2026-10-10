@@ -76,7 +76,8 @@ class PersonAccount:
             f'Ces revenus: {self.incomes} et dépenses: {self.expenses}\n'
             f'le total des revenues: {self.total_income()}\n'
             f'le totale des depenses: {self.total_expense()}\n'
-            f'le reste est: {self.account_balance()}')
+            f'le reste est: {self.account_balance()}'
+            )
 
 acc = PersonAccount('massinissa', 'mecellem')
 acc.add_income('freelance', 4900)
@@ -88,7 +89,48 @@ acc.add_expense('cours', 300)
 acc.add_expense('activité', 200)
 
 
-print(acc.affiche_info())
 
 
-        
+
+    
+
+
+class QueueError(IndexError):
+    pass
+
+
+class Queue:
+    def __init__(self):
+        self.queue = []
+
+    def put(self, elem):
+        self.queue.insert(0, elem)
+
+    def get(self):
+        if len(self.queue) > 0:
+            elem = self.queue[-1]
+            del self.queue[-1]
+            return elem
+        else:
+            raise QueueError
+
+
+class SuperQueue(Queue):
+    def __init__(self):
+        super().__init__()
+
+    def isempty(self):
+        return len(self.queue) == 0
+
+
+que = SuperQueue()
+que.put(1)
+que.put("dog")
+que.put(False)
+for i in range(4):
+    if not que.isempty():
+        print(que.get())
+    else:
+        print("Queue empty")
+    
+    
