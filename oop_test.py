@@ -8,11 +8,31 @@ class Students:
         self.age = age
 
     def student_info(self):
-        return f'l\'etudiant {self.name} a {self.age} '
+        return f'Student name is {self.name} has {self.age} '
 
-    @classmethod
-    def initbirthday(cls, name, birthday):
-        return cls(name, date.today().year - birthday)
+class Man(Students):
+    gender = 'male'
+    number = 0
+    def __init__(self, name, age, voice):
+        super().__init__(name, age)
+        self.voice = voice
+        self.number +=1
+    def Man_info(self):
+        string = super().student_info()
+        return string + f'his voice is {self.voice} and is a {self.gender}'
+
+
+
+man = Man('massi', 25, 'hard')
+print(man.Man_info())
+print(man.number)
+
+
+
+
+
+
+
 
 
 
@@ -42,9 +62,6 @@ class Pizza:
     
 
 
-p1 = Pizza(['tomates', 'olives'], 6)
-print(p1.self_radius())
-print(p1.get_radius(4))
 
 
 
