@@ -12,20 +12,31 @@ class Students:
 
 class Man(Students):
     gender = 'male'
-    number = 0
+    number_man = 0
     def __init__(self, name, age, voice):
         super().__init__(name, age)
         self.voice = voice
-        self.number +=1
+        self.number_man +=1
     def Man_info(self):
         string = super().student_info()
-        return string + f'his voice is {self.voice} and is a {self.gender}'
+        return string + f'his voice is {self.voice} and he is a {self.gender}'
 
-
+class Women(Students):
+    gender = 'femme'
+    number_women = 0
+    def __init__(self, name, age, hair):
+        super().__init__(name, age)
+        self.hair = hair
+        self.number_women +=1
+    def women_info(self):
+        string = super().student_info() 
+        return string + f'his hair is {self.hair} and she is a {self.gender}'
 
 man = Man('massi', 25, 'hard')
+women = Women('fetta', 25, 'brown')
 print(man.Man_info())
-print(man.number)
+print(man.number_man)
+print(women.women_info())
 
 
 
