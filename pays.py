@@ -29,5 +29,5 @@ def get_data_url(url, api_key):
         return None
 
 
-pays = get_data_url('https://api.restcountries.com/countries/v5/all', 'rc_live_a3e9716983d94d59b71e30effdcb69cb')
+pays = get_data_url('https://api.restcountries.com/countries/v5', 'rc_live_a3e9716983d94d59b71e30effdcb69cb')
 print(pays)
